@@ -25,8 +25,8 @@ npm install -g @modelcontextprotocol/server-fr24api
 ### From Source
 
 ```bash
-git clone https://github.com/flightradar24/fr24api_mcp.git
-cd fr24api_mcp
+git clone https://github.com/flightradar24/fr24api-mcp.git
+cd fr24api-mcp
 npm install
 npm run build
 ```
@@ -199,8 +199,8 @@ The server provides comprehensive error messages when:
 ### Building from Source
 
 ```bash
-git clone https://github.com/flightradar24/fr24api_mcp.git
-cd fr24api_mcp
+git clone https://github.com/flightradar24/fr24api-mcp.git
+cd fr24api-mcp
 npm install
 npm run build
 ```
@@ -223,7 +223,7 @@ npm run build
 ## Support
 
 - **Documentation**: [https://fr24api.flightradar24.com](https://fr24api.flightradar24.com)
-- **Issues**: [GitHub Issues](https://github.com/Flightradar24/fr24api_mcp/issues)
+- **Issues**: [GitHub Issues](https://github.com/Flightradar24/fr24api-mcp/issues)
 - **API Support**: Contact Flightradar24 API support
 
 ## License

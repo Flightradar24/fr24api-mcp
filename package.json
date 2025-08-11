@@ -17,10 +17,10 @@
     "homepage": "https://fr24api.flightradar24.com",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Flightradar24/fr24api_mcp.git"
+        "url": "git+https://github.com/Flightradar24/fr24api-mcp.git"
     },
     "bugs": {
-        "url": "https://github.com/Flightradar24/fr24api_mcp/issues"
+        "url": "https://github.com/Flightradar24/fr24api-mcp/issues"
     },
     "type": "module",
     "main": "build/index.js",
