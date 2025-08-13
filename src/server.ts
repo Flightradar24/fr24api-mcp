@@ -94,6 +94,11 @@ const airlineInfoSchema = z.object({ icao: z.string().min(1).describe('Airline I
 const airportInfoLightSchema = z.object({ code: z.string().min(1).describe('Airport IATA or ICAO code.') });
 const airportInfoFullSchema = z.object({ code: z.string().min(1).describe('Airport IATA or ICAO code.') });
 
+const historicFlightEventsSchema = z.object({
+  flight_ids: z.string().min(1).describe('Comma-separated fr24_ids (maximum 15 IDs). Cannot be combined with event_datetime.'),
+  event_types: z.string().min(1).describe('Event types to filter by (comma-separated values). Available values: all, gate_departure, takeoff, cruising, airspace_transition, descent, landed, gate_arrival.')
+});
+
 
 /**
  * Creates and configures a Flightradar24 MCP server
@@ -457,6 +462,58 @@ export function createServer(apiKey: string): McpServer {
           content: [{
             type: 'text' as const,
             text: `Error fetching full airport info for ${code}: ${error instanceof Error ? error.message : 'Unknown error'}`
+          }],
+          isError: true
+        };
+      }
+    }
+  );
+
+  server.tool(
+    'get_historic_flight_events_full',
+    'Returns selected historical flight events (gate_departure, takeoff, cruising, airspace_transition, resuming_flightplan, descent, landed, gate_arrival), with detailed information, sorted by event_timestamp and grouped by flight_id. REQUIRED: flight_ids and event_types must be provided and non-empty.',
+    historicFlightEventsSchema.shape,
+    async (params: z.infer<typeof historicFlightEventsSchema>) => {
+      try {
+        console.log(`Raw params received by handler: ${JSON.stringify(params)}`);
+        const result = await fr24Client.getHistoricFlightEventsFull(params);
+        return {
+          content: [{
+            type: 'text' as const,
+            text: `Found ${result.length} flights with historic events (full details):\n${JSON.stringify(result, null, 2)}`
+          }]
+        };
+      } catch (error) {
+        return {
+          content: [{
+            type: 'text' as const,
+            text: `Error: ${error instanceof Error ? error.message : 'Unknown error'}`
+          }],
+          isError: true
+        };
+      }
+    }
+  );
+
+  server.tool(
+    'get_historic_flight_events_light',
+    'Returns selected historical flight events (gate_departure, takeoff, cruising, airspace_transition, resuming_flightplan, descent, landed, gate_arrival), sorted by event_timestamp and grouped by flight_id. REQUIRED: flight_ids and event_types must be provided and non-empty.',
+    historicFlightEventsSchema.shape,
+    async (params: z.infer<typeof historicFlightEventsSchema>) => {
+      try {
+        console.log(`Raw params received by handler: ${JSON.stringify(params)}`);
+        const result = await fr24Client.getHistoricFlightEventsLight(params);
+        return {
+          content: [{
+            type: 'text' as const,
+            text: `Found ${result.length} flights with historic events (light details):\n${JSON.stringify(result, null, 2)}`
+          }]
+        };
+      } catch (error) {
+        return {
+          content: [{
+            type: 'text' as const,
+            text: `Error: ${error instanceof Error ? error.message : 'Unknown error'}`
           }],
           isError: true
         };

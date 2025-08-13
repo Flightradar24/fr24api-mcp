@@ -15,7 +15,10 @@ import {
   HistoricFlightPositionLight,
   FlightSummaryFull,
   FlightSummaryLight,
-  FlightTracksResponse
+  FlightTracksResponse,
+  HistoricFlightEventsQueryParams,
+  HistoricFlightEventsFull,
+  HistoricFlightEventsLight
 } from './types.js';
 
 export class FR24Client {
@@ -104,6 +107,16 @@ export class FR24Client {
 
   async getFlightTracks(params: FlightTracksQueryParams): Promise<FlightTracksResponse[]> {
     return this.makeRequest<FlightTracksResponse[]>('/flight-tracks', params);
+  }
+
+  // --- Historic Flight Events ---
+
+  async getHistoricFlightEventsFull(params: HistoricFlightEventsQueryParams): Promise<HistoricFlightEventsFull[]> {
+    return this.makeRequest<HistoricFlightEventsFull[]>('/historic/flight-events/full', params);
+  }
+
+  async getHistoricFlightEventsLight(params: HistoricFlightEventsQueryParams): Promise<HistoricFlightEventsLight[]> {
+    return this.makeRequest<HistoricFlightEventsLight[]>('/historic/flight-events/light', params);
   }
 
   // --- Static Data --- (Airlines, Airports)
