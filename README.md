@@ -1,6 +1,6 @@
 # Flightradar24 MCP Server
 
-[![npm version](https://badge.fury.io/js/@modelcontextprotocol%2Fserver-fr24api.svg)](https://badge.fury.io/js/@modelcontextprotocol%2Fserver-fr24api)
+[![npm version](https://badge.fury.io/js/@flightradar24%2Ffr24api-mcp.svg)](https://badge.fury.io/js/@flightradar24%2Ffr24api-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server provides access to the Flightradar24 API for real-time and historical flight data. This server enables AI assistants like Claude to access comprehensive aviation data including live flight positions, aircraft information, airport details, and flight histories.
@@ -16,19 +16,10 @@ This [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server prov
 
 ## Installation
 
-### Via npm (Recommended)
+### Via npm
 
 ```bash
-npm install -g @modelcontextprotocol/server-fr24api
-```
-
-### From Source
-
-```bash
-git clone https://github.com/flightradar24/fr24api-mcp.git
-cd fr24api-mcp
-npm install
-npm run build
+npm install -g @flightradar24/fr24api-mcp
 ```
 
 ## Prerequisites
@@ -45,14 +36,16 @@ Add this configuration to your `claude_desktop_config.json` file:
 ```json
 {
   "mcpServers": {
-    "flightradar24": {
-      "command": "mcp-server-fr24api",
+    "fr24api": {
+      "command": "npx",
+      "args": ["@flightradar24/fr24api-mcp@latest"],
       "env": {
         "FR24_API_KEY": "your_api_key_here"
       }
     }
   }
 }
+
 ```
 
 **Important Notes:**
@@ -65,7 +58,7 @@ Add this configuration to your `claude_desktop_config.json` file:
 For other MCP clients, run the server directly:
 
 ```bash
-FR24_API_KEY=your_api_key_here mcp-server-fr24api
+FR24_API_KEY=your_api_key_here npx @flightradar24/fr24api-mcp
 ```
 
 ## Available Tools
@@ -186,14 +179,6 @@ Get historical flights at JFK airport on timestamp 1640995200 with airports: inb
 Get flight summary from 2024-01-01T00:00:00Z to 2024-01-02T00:00:00Z for route JFK-LAX
 ```
 
-## Error Handling
-
-The server provides comprehensive error messages when:
-- Required parameters are missing or empty
-- Invalid parameter formats are provided
-- API rate limits are exceeded
-- Network issues occur
-
 ## Development
 
 ### Building from Source
@@ -205,12 +190,6 @@ npm install
 npm run build
 ```
 
-### Scripts
-
-- `npm run build`: Compile TypeScript to JavaScript
-- `npm run watch`: Watch for changes and rebuild
-- `npm run clean`: Remove build artifacts
-- `npm start`: Run the server locally
 
 ### Contributing
 

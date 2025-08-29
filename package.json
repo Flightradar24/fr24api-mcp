@@ -1,5 +1,5 @@
 {
-    "name": "@modelcontextprotocol/server-fr24api",
+    "name": "@flightradar24/fr24api-mcp",
     "version": "1.0.0",
     "description": "MCP server providing access to the Flightradar24 API for real-time and historical flight data",
     "keywords": [
@@ -25,7 +25,7 @@
     "type": "module",
     "main": "build/index.js",
     "bin": {
-        "mcp-server-fr24api": "build/index.js"
+        "mcp-fr24api-mcp": "build/index.js"
     },
     "files": [
         "build/**/*",
@@ -39,7 +39,7 @@
         "build": "tsc && shx chmod +x build/index.js",
         "clean": "rm -rf build",
         "prepare": "npm run build",
-        "prepublishOnly": "npm run clean && npm run build",
+        "prepublishOnly": "npm run build",
         "watch": "tsc --watch",
         "start": "node build/index.js",
         "test": "echo \"No tests specified\" && exit 0"
