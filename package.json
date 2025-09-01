@@ -1,61 +1,62 @@
 {
-    "name": "@flightradar24/fr24api-mcp",
-    "version": "1.0.0",
-    "description": "MCP server providing access to the Flightradar24 API for real-time and historical flight data",
-    "keywords": [
-        "mcp",
-        "model-context-protocol",
-        "flightradar24",
-        "fr24api",
-        "flight-data",
-        "aviation",
-        "claude",
-        "ai"
-    ],
-    "author": "Flightradar24",
-    "license": "MIT",
-    "homepage": "https://fr24api.flightradar24.com",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Flightradar24/fr24api-mcp.git"
-    },
-    "bugs": {
-        "url": "https://github.com/Flightradar24/fr24api-mcp/issues"
-    },
-    "type": "module",
-    "main": "build/index.js",
-    "bin": {
-        "mcp-fr24api-mcp": "build/index.js"
-    },
-    "files": [
-        "build/**/*",
-        "README.md",
-        "LICENSE"
-    ],
-    "engines": {
-        "node": ">=18.0.0"
-    },
-    "scripts": {
-        "build": "tsc && shx chmod +x build/index.js",
-        "clean": "rm -rf build",
-        "prepare": "npm run build",
-        "prepublishOnly": "npm run build",
-        "watch": "tsc --watch",
-        "start": "node build/index.js",
-        "test": "echo \"No tests specified\" && exit 0"
-    },
-    "dependencies": {
-        "@modelcontextprotocol/sdk": "1.17.2",
-        "axios": "^1.6.2",
-        "dotenv": "^16.3.1",
-        "mcps-logger": "^1.0.0",
-        "zod": "^3.22.4",
-        "zod-to-json-schema": "^3.24.6"
-    },
-    "devDependencies": {
-        "@modelcontextprotocol/inspector": "^0.10.2",
-        "@types/node": "^20.10.4",
-        "shx": "^0.3.4",
-        "typescript": "^5.6.2"
-    }
+  "name": "@flightradar24/fr24api-mcp",
+  "version": "1.0.0",
+  "description": "MCP server providing access to the Flightradar24 API for real-time and historical flight data",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "flightradar24",
+    "fr24api",
+    "flight-data",
+    "aviation",
+    "claude",
+    "ai"
+  ],
+  "author": "Flightradar24",
+  "license": "MIT",
+  "homepage": "https://fr24api.flightradar24.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flightradar24/fr24api-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Flightradar24/fr24api-mcp/issues"
+  },
+  "type": "module",
+  "main": "build/index.js",
+  "bin": {
+    "mcp-fr24api-mcp": "build/index.js"
+  },
+  "files": [
+    "build/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsc && shx chmod +x build/index.js",
+    "clean": "rm -rf build",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "watch": "tsc --watch",
+    "start": "node build/index.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.17.2",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "mcps-logger": "^1.0.0",
+    "zod": "^3.22.4",
+    "zod-to-json-schema": "^3.24.6"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/inspector": "^0.10.2",
+    "@types/node": "^20.10.4",
+    "shx": "^0.3.4",
+    "typescript": "^5.6.2",
+    "vitest": "^3.2.4"
+  }
 }
