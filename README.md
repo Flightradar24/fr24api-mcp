@@ -211,6 +211,10 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Changelog
 
+### 1.0.1
+Release to [MCP Registry](https://github.com/modelcontextprotocol/registry)
+
+
 ### 1.0.0
 - Initial public release
 - Comprehensive flight data access
