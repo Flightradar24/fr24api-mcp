@@ -70,3 +70,5 @@ build/Release
 # Temporary folders
 tmp/
 temp/
+
+.mcpregistry_*

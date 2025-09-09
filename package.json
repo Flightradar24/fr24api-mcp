@@ -1,5 +1,6 @@
 {
   "name": "@flightradar24/fr24api-mcp",
+  "mcpName": "io.github.Flightradar24/fr24api-mcp",
   "version": "1.0.0",
   "description": "MCP server providing access to the Flightradar24 API for real-time and historical flight data",
   "keywords": [
