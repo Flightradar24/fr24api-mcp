@@ -110,7 +110,7 @@ export function createServer(apiKey: string): McpServer {
   
   const server = new McpServer({
     name: 'Flightradar24 Gateway',
-    version: '1.0.1'
+    version: '1.0.2'
   });
 
   // Register tools

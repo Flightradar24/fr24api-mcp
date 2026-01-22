@@ -211,6 +211,11 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Changelog
 
+### 1.0.2
+- fix: flight summary 14 days prompt
+- release file update to asure trusted publisher works (#6)
+
+
 ### 1.0.1
 Release to [MCP Registry](https://github.com/modelcontextprotocol/registry)
 
