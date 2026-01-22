@@ -59,8 +59,8 @@ const historicFlightPositionsCountSchema = baseFlightPositionsSchema.extend({
 });
 
 const flightSummaryToolParamsSchema = z.object({
-  flight_datetime_from: z.string().min(1).describe('Start datetime (YYYY-MM-DDTHH:MM:SSZ). Requires flight_datetime_to. Cannot be used with flight_ids.'),
-  flight_datetime_to: z.string().min(1).describe('End datetime (YYYY-MM-DDTHH:MM:SSZ). Requires flight_datetime_from. Cannot be used with flight_ids.'),
+  flight_datetime_from: z.string().min(1).describe('Start datetime (YYYY-MM-DDTHH:MM:SSZ). Requires flight_datetime_to. Cannot be used with flight_ids. Maximum query range is 14 days.'),
+  flight_datetime_to: z.string().min(1).describe('End datetime (YYYY-MM-DDTHH:MM:SSZ). Requires flight_datetime_from. Cannot be used with flight_ids. Maximum query range is 14 days.'),
   flights: z.string().min(1).optional().describe('Flight numbers (comma-separated values, max 15).'),
   callsigns: z.string().min(1).optional().describe('Flight callsigns (comma-separated values, max 15).'),
   registrations: z.string().min(1).optional().describe('Aircraft registration numbers (comma-separated values, max 15).'),
@@ -74,8 +74,8 @@ const flightSummaryToolParamsSchema = z.object({
 });
 
 const flightSummaryCountToolParamsSchema = z.object({
-  flight_datetime_from: z.string().min(1).describe('Start datetime (YYYY-MM-DDTHH:MM:SSZ). Requires flight_datetime_to. Cannot be used with flight_ids.'),
-  flight_datetime_to: z.string().min(1).describe('End datetime (YYYY-MM-DDTHH:MM:SSZ). Requires flight_datetime_from. Cannot be used with flight_ids.'),
+  flight_datetime_from: z.string().min(1).describe('Start datetime (YYYY-MM-DDTHH:MM:SSZ). Requires flight_datetime_to. Cannot be used with flight_ids. Maximum query range is 14 days.'),
+  flight_datetime_to: z.string().min(1).describe('End datetime (YYYY-MM-DDTHH:MM:SSZ). Requires flight_datetime_from. Cannot be used with flight_ids. Maximum query range is 14 days.'),
   flights: z.string().min(1).optional().describe('Flight numbers (comma-separated values, max 15).'),
   callsigns: z.string().min(1).optional().describe('Flight callsigns (comma-separated values, max 15).'),
   registrations: z.string().min(1).optional().describe('Aircraft registration numbers (comma-separated values, max 15).'),
